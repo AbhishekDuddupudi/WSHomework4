@@ -143,7 +143,7 @@ Remotes are versions of your project that are hosted on the internet or network.
 
 3. **Creating a Branch**:
 
-   ```bash
+   ```bashh
    git branch [branch-name]
    ```
 
