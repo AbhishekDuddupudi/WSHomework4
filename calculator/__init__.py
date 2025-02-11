@@ -1,30 +1,31 @@
-"""
-Basic calculator module that provides arithmetic operations.
-"""
+from calculator.calculation import Calculation
+from calculator.operations import add, subtract, multiply, divide
 
-def add(a, b):
-    """
-    Returns the sum of two numbers.
-    """
-    return a + b
+class Calculator:
+    """A Calculator class that uses Calculation objects for operations."""
 
-def subtract(a, b):
-    """
-    Returns the difference between two numbers.
-    """
-    return a - b
+    @staticmethod
+    def _perform_operation(a, b, operation):
+        """Helper function to avoid repeating the same logic."""
+        calculation = Calculation(a, b, operation)
+        return calculation.get_result()
 
-def multiply(a, b):
-    """
-    Returns the product of two numbers.
-    """
-    return a * b
+    @staticmethod
+    def add(a, b):
+        """Perform addition and return result."""
+        return Calculator._perform_operation(a, b, add)
 
-def divide(a, b):
-    """
-    Returns the result of dividing the first number by the second.
-    Raises a ValueError if the second number is zero.
-    """
-    if b == 0:
-        raise ValueError("Cannot divide by zero")
-    return a / b
+    @staticmethod
+    def subtract(a, b):
+        """Perform subtraction and return result."""
+        return Calculator._perform_operation(a, b, subtract)
+
+    @staticmethod
+    def multiply(a, b):
+        """Perform multiplication and return result."""
+        return Calculator._perform_operation(a, b, multiply)
+
+    @staticmethod
+    def divide(a, b):
+        """Perform division and return result. Raises exception for division by zero."""
+        return Calculator._perform_operation(a, b, divide)
