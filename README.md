@@ -1,12 +1,15 @@
-# Intermediate Calculator (Part 2)
+# Advanced Calculator (Part 3)
 
-This is an intermediate-level Python calculator that uses object-oriented programming principles. It performs basic arithmetic operations and utilizes a `Calculator` class with static methods and a `Calculation` class to store operations.
+This is an advanced Python calculator that follows Object-Oriented Programming (OOP) principles, implementing SOLID design patterns. It supports arithmetic operations, calculation history, and enhanced testing with parameterized test data and fixtures.
 
 ## Features
-- Addition, subtraction, multiplication, and division
-- Uses a `Calculator` class with static methods for operations
-- Uses a `Calculation` class to store values and perform operations
-- Error handling for division by zero
+- Perform basic arithmetic operations: addition, subtraction, multiplication, and division.
+- Uses a `Calculator` class with static methods to perform calculations.
+- Uses a `Calculation` class to store values and execute operations.
+- Implements a `Calculations` class to maintain a history of performed calculations.
+- Exception handling for division by zero.
+- Uses `pytest` for unit testing with parameterized test cases and fixtures.
+- Follows best practices in software design (Single Responsibility Principle, Encapsulation, DRY).
 
 ## Installation and Setup
 1. Clone the repository:
@@ -18,7 +21,7 @@ This is an intermediate-level Python calculator that uses object-oriented progra
 2. Create and activate a virtual environment:
    ```bash
    python -m venv venv
-   source venv/bin/activate 
+   source venv/bin/activate  
    ```
 
 3. Install dependencies:
@@ -27,19 +30,7 @@ This is an intermediate-level Python calculator that uses object-oriented progra
    ```
 
 ## Running Tests
-To run tests, use:
+To run tests and check test coverage, use:
 ```bash
-pytest tests/
+pytest tests/ --cov=calculator
 ```
-
-## Usage
-You can use the calculator functions in Python:
-```python
-from calculator import Calculator
-
-result = Calculator.add(10, 5)
-print(result)  # Output: 15
-```
-
-This project demonstrates object-oriented principles such as encapsulation and separation of concerns.
-
