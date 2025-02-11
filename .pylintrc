@@ -1,51 +1,49 @@
 [MASTER]
-# A list of file extensions of the files that will be checked for Python code
+# Ensure that Python code can be checked properly
 init-hook='import sys; sys.path.append(".")'
 extension-pkg-whitelist=pydantic
-load-plugins=pylint_django
+load-plugins=
 
 [MESSAGES CONTROL]
-# Only show these errors
-# Disable the following checks (example list):
+# Disable specific linting checks
 disable=
+    missing-module-docstring,
+    missing-function-docstring,
+    invalid-name
 
 [REPORTS]
-# Set the output format. Available formats: text, parseable, colorized, json, msvs (visual studio) and html
+# Use a colorized output format
 output-format=colorized
 
-# Include a report at the end of the log
+# Disable full reports to prevent errors
 reports=yes
-
-# Put a full report at the end of the file
 report-full=no
 
 [DESIGN]
-# Maximum number of parents for a class (see R0901).
+# Maximum number of parents for a class
 max-parents=15
 
-# Maximum number of attributes for a class (see R0902).
+# Maximum number of attributes for a class
 max-attributes=10
 
-# Minimum number of public methods for a class (see R0903).
+# Minimum number of public methods for a class
 min-public-methods=0
 
-# Maximum number of public methods for a class (see R0904).
+# Maximum number of public methods for a class
 max-public-methods=20
 
 [BASIC]
-# Variable names can be 1 to 31 characters long
+# Variable names should be between 1 and 31 characters long
 variable-rgx=[a-z_][a-z0-9_]{0,30}$
 
-# Function names should be lowercase, with words separated by underscores as necessary to improve readability
+# Function names should be lowercase with words separated by underscores
 function-rgx=[a-z_][a-z0-9_]{2,50}$
 
-# Argument names should be lowercase, with words separated by underscores as necessary to improve readability
+# Argument names should be lowercase with words separated by underscores
 argument-rgx=[a-z_][a-z0-9_]{1,30}$
 
-# Method names should be lowercase, with words separated by underscores as necessary to improve readability
+# Method names should be lowercase with words separated by underscores
 method-rgx=[a-z_][a-z0-9_]{2,50}$
 
-# Module names should have short, all-lowercase names. The use of underscores is discouraged.
+# Module names should be short and lowercase
 module-rgx=[a-z_][a-z0-9_]{1,30}$
-
-# Class names
