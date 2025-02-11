@@ -13,14 +13,14 @@ This is a simple Python calculator that performs basic arithmetic operations: ad
 ## Installation and Setup
 1. Clone the repository:
    ```
-   git clone <your-repo-url>
+   git clone https://github.com/AbhishekDuddupudi/WShomework3.git
    cd calculator_project
    ```
 
 2. Create and activate a virtual environment:
    ```
    python -m venv venv
-   source venv/bin/activate  # On Windows, use venv\Scripts\activate
+   source venv/bin/activate 
    ```
 
 3. Install dependencies:
