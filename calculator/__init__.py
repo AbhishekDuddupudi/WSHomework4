@@ -1,31 +1,28 @@
+from decimal import Decimal
+from typing import Callable
+from calculator.calculations import Calculations
 from calculator.calculation import Calculation
 from calculator.operations import add, subtract, multiply, divide
 
 class Calculator:
-    """A Calculator class that uses Calculation objects for operations."""
+    @staticmethod
+    def _perform_operation(a: Decimal, b: Decimal, operation: Callable[[Decimal, Decimal], Decimal]) -> Decimal:
+        calculation = Calculation.create(a, b, operation)
+        Calculations.add_calculation(calculation)
+        return calculation.perform()
 
     @staticmethod
-    def _perform_operation(a, b, operation):
-        """Helper function to avoid repeating the same logic."""
-        calculation = Calculation(a, b, operation)
-        return calculation.get_result()
-
-    @staticmethod
-    def add(a, b):
-        """Perform addition and return result."""
+    def add(a: Decimal, b: Decimal) -> Decimal:
         return Calculator._perform_operation(a, b, add)
 
     @staticmethod
-    def subtract(a, b):
-        """Perform subtraction and return result."""
+    def subtract(a: Decimal, b: Decimal) -> Decimal:
         return Calculator._perform_operation(a, b, subtract)
 
     @staticmethod
-    def multiply(a, b):
-        """Perform multiplication and return result."""
+    def multiply(a: Decimal, b: Decimal) -> Decimal:
         return Calculator._perform_operation(a, b, multiply)
 
     @staticmethod
-    def divide(a, b):
-        """Perform division and return result. Raises exception for division by zero."""
+    def divide(a: Decimal, b: Decimal) -> Decimal:
         return Calculator._perform_operation(a, b, divide)
