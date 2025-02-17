@@ -30,12 +30,15 @@ This repository showcases the evolution of a Python-based calculator from basic 
    cd <repo-name>
 
 2. **Create & Activate a Virtual Environment**
+   ```bash
    python -m venv venv
    source venv/bin/activate
    (On Windows: venv\Scripts\activate)
 
 3. **Install Dependencies**
+   ```bash
    pip install -r requirements.txt
 
 4. **Tests**
+   ```bash
    pytest --num_records=20
