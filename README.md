@@ -1,36 +1,41 @@
-# Advanced Calculator (Part 3)
+# Advanced Calculator
 
-This is an advanced Python calculator that follows Object-Oriented Programming (OOP) principles, implementing SOLID design patterns. It supports arithmetic operations, calculation history, and enhanced testing with parameterized test data and fixtures.
+This repository showcases the evolution of a Python-based calculator from basic operations to advanced features like dynamic testing with Faker and a command-line interface (CLI).
 
 ## Features
-- Perform basic arithmetic operations: addition, subtraction, multiplication, and division.
-- Uses a `Calculator` class with static methods to perform calculations.
-- Uses a `Calculation` class to store values and execute operations.
-- Implements a `Calculations` class to maintain a history of performed calculations.
-- Exception handling for division by zero.
-- Uses `pytest` for unit testing with parameterized test cases and fixtures.
-- Follows best practices in software design (Single Responsibility Principle, Encapsulation, DRY).
 
-## Installation and Setup
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/AbhishekDuddupudi/WShomework3.git
-   cd calculator_project
-   ```
+1. **Arithmetic Operations**  
+   - Supports addition, subtraction, multiplication, and division.
+   - Organized using OOP principles with classes such as `Calculation`, `Calculations`, and `Calculator`.
 
-2. Create and activate a virtual environment:
+2. **Faker Integration**  
+   - Uses the Faker library to generate synthetic data for testing.
+   - Allows dynamic test data generation via a custom pytest command-line option (e.g., `--num_records`).
+
+3. **Command-Line Interface (CLI)**  
+   - Implements a `main.py` file to handle user inputs.
+   - Validates numeric inputs, handles division by zero, and recognizes unknown operations.
+   - Provides user-friendly error messages.
+
+4. **Comprehensive Testing**  
+   - Unit tests covering core arithmetic operations, Faker usage, and CLI behavior.
+   - Pytest fixtures and parameterized tests for flexible, robust test coverage.
+   - Easily executed with `pytest`.
+
+## Installation & Setup
+
+1. **Clone the Repository**  
    ```bash
+   git clone <your-repo-link.git>
+   cd <repo-name>
+
+2. **Create & Activate a Virtual Environment**
    python -m venv venv
-   source venv/bin/activate  
-   ```
+   source venv/bin/activate
+   (On Windows: venv\Scripts\activate)
 
-3. Install dependencies:
-   ```bash
+3. **Install Dependencies**
    pip install -r requirements.txt
-   ```
 
-## Running Tests
-To run tests and check test coverage, use:
-```bash
-pytest tests/ --cov=calculator
-```
+4. **Tests**
+   pytest --num_records=20
