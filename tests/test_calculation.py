@@ -22,11 +22,12 @@ def test_calculation_operations(a, b, operation, expected):
     assert calc.perform() == expected, f"Failed {operation.__name__} operation with {a} and {b}"
 
 def test_calculation_repr():
-    """Test the string representation (__repr__) of Calculation class."""
+    """Test the string representation of Calculation class."""
     calc = Calculation(Decimal('10'), Decimal('5'), add)
     expected_repr = "Calculation(10, 5, add)"
-    assert calc.__repr__() == expected_repr, "The __repr__ method output does not match expected."
-    
+    # Use repr() instead of directly calling __repr__()
+    assert repr(calc) == expected_repr, "The __repr__ output does not match expected."
+
 def test_divide_by_zero():
     """Ensure division by zero raises a ValueError."""
     calc = Calculation(Decimal('10'), Decimal('0'), divide)

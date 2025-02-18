@@ -10,31 +10,33 @@ def pytest_addoption(parser):
         help="Number of test records to generate"
     )
 
-@pytest.fixture
-def fake():
+# Use a fixture name that can be shared among tests.
+@pytest.fixture(name="faker_instance")
+def fixture_faker_instance():
     return Faker()
 
 def calculate_expected(a, b, operation):
     if operation == "add":
         return a + b
-    elif operation == "subtract":
+    if operation == "subtract":
         return a - b
-    elif operation == "multiply":
+    if operation == "multiply":
         return a * b
-    elif operation == "divide":
-        # In a real scenario, you might want to ensure b is not zero.
+    if operation == "divide":
         return a / b if b != 0 else "Error: Division by zero"
-    else:
-        raise ValueError(f"Unknown operation: {operation}")
+    raise ValueError(f"Unknown operation: {operation}")
 
 @pytest.fixture
-def generated_data(request, fake):
+def generated_data(request, faker_instance):
     num_records = request.config.getoption("--num_records")
     data = []
     for _ in range(num_records):
-        a = fake.random_int(min=1, max=100)
-        b = fake.random_int(min=1, max=100)
-        operation = fake.random_element(elements=("add", "subtract", "multiply", "divide"))
+        a = faker_instance.random_int(min=1, max=100)
+        b = faker_instance.random_int(min=1, max=100)
+        # Break this line into multiple lines to avoid exceeding the line limit.
+        operation = faker_instance.random_element(
+            elements=("add", "subtract", "multiply", "divide")
+        )
         expected = calculate_expected(a, b, operation)
         data.append((a, b, operation, expected))
     return data

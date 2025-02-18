@@ -2,14 +2,12 @@
 This module contains tests for the Calculator class.
 
 The tests verify that basic arithmetic operations (addition, subtraction, multiplication, division)
-are correctly performed by the Calculator class using the Calculation and Calculations classes.
+are correctly performed by the Calculator class.
 """
 
 from decimal import Decimal
 import pytest
 from calculator import Calculator
-from calculator.calculations import Calculations
-
 
 @pytest.mark.parametrize("a, b, expected", [
     (Decimal('10'), Decimal('5'), Decimal('15')),
