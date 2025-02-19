@@ -42,3 +42,8 @@ This repository showcases the evolution of a Python-based calculator from basic 
 4. **Tests**
    ```bash
    pytest --num_records=20
+
+
+![alt text](<../../Screenshot 2025-02-18 at 7.55.01 PM.png>)
+
+![alt text](<../../Screenshot 2025-02-18 at 7.55.44 PM.png>)
